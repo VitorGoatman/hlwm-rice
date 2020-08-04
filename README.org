@@ -1,9 +1,12 @@
 #+TITLE: Herbstluftwm Config
 #+PROPERTY: header-args :tangle autostart :tangle-mode (identity #o755)
 
-* About This Config
-* AUTOSTART
-** Start HLWM
+** About This Config
+This is my personal hlwm config. I'll probably add my panel config here
+sometime soon.
+
+** AUTOSTART
+*** Start HLWM
 #+BEGIN_SRC bash
 #!/usr/bin/env bash
 
@@ -19,8 +22,8 @@ hc emit_hook reload
 hc keyunbind --all
 #+END_SRC
 
-** Keybinds
-*** Core
+*** Keybinds
+**** Core
 Set the modifier keys and binds for reloading and exiting HLWM.
 
 #+BEGIN_SRC bash
@@ -32,7 +35,7 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 #+END_SRC
 
-*** Launch Programs
+**** Launch Programs
 A nice thing about hlwm's config being written in shell is that our system's environment
 variables such as ~$BROWSER~, ~EDITOR~ and ~$TERM~ are usable in the keybinds.
 
@@ -51,7 +54,7 @@ hc keybind $Mod-$Alt-m spawn $TERM -e 'mocp'
 hc keybind $Mod-$Alt-c spawn $TERM -e 'castero'
 #+END_SRC
 
-*** Focus
+**** Focus
 
 #+BEGIN_SRC bash
 hc keybind $Mod-Left  focus left
@@ -69,7 +72,7 @@ hc keybind $Mod-c cycle
 hc keybind $Mod-i jumpto urgent
 #+END_SRC
 
-*** Movement
+**** Movement
 #+BEGIN_SRC bash
 hc keybind $Mod-Shift-Left  shift left
 hc keybind $Mod-Shift-Down  shift down
@@ -81,7 +84,7 @@ hc keybind $Mod-Shift-k     shift up
 hc keybind $Mod-Shift-l     shift right
 #+END_SRC
 
-*** Controlling Frames
+**** Controlling Frames
 #+BEGIN_SRC bash
 # create an empty frame at the specified direction
 hc keybind $Mod-u       split   bottom  0.5
@@ -100,7 +103,7 @@ hc keybind $Mod-Control-Up      resize up +$resizestep
 hc keybind $Mod-Control-Right   resize right +$resizestep
 #+END_SRC
 
-*** Tags
+**** Tags
 #+BEGIN_SRC bash
 tag_names=( {1..8} )
 tag_keys=( {1..8} 0 )
@@ -120,7 +123,7 @@ hc keybind $Mod-period use_index +1 --skip-visible
 hc keybind $Mod-comma  use_index -1 --skip-visible
 #+END_SRC
 
-*** Layouts
+**** Layouts
 #+BEGIN_SRC bash
 hc keybind $Mod-r remove
 hc keybind $Mod-s floating toggle
@@ -136,7 +139,7 @@ hc keybind $Mod-space                                                           
                , cycle_layout +1
 #+END_SRC
 
-*** Mouse Binds
+**** Mouse Binds
 #+BEGIN_SRC bash
 hc mouseunbind --all
 hc mousebind $Mod-Button1 move
@@ -144,7 +147,7 @@ hc mousebind $Mod-Button2 zoom
 hc mousebind $Mod-Button3 resize
 #+END_SRC
 
-*** Focus
+**** Focus
 #+BEGIN_SRC bash
 hc keybind $Mod-BackSpace   cycle_monitor
 hc keybind $Mod-Tab         cycle_all +1
@@ -153,7 +156,7 @@ hc keybind $Mod-c cycle
 hc keybind $Mod-i jumpto urgent
 #+END_SRC
 
-** Theming
+*** Theming
 #+BEGIN_SRC bash
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
@@ -189,7 +192,7 @@ hc set mouse_recenter_gap 0
 
 #+RESULTS:
 
-** Rules
+*** Rules
 #+BEGIN_SRC bash
 hc unrule -F
 hc rule class=mpv tag=5 # move all xterms to tag 3
@@ -207,7 +210,7 @@ hc set tree_style '╾│ ├└╼─┐'
 hc unlock
 #+END_SRC
 
-** Monitors
+*** Monitors
 #+BEGIN_SRC bash
 # do multi monitor setup here, e.g.:
 # hc set_monitors 1280x1024+0+0 1280x1024+1280+0
@@ -215,7 +218,7 @@ hc unlock
 # hc detect_monitors
 #+END_SRC
 
-** Panel
+*** Panel
 #+BEGIN_SRC bash
 panel=~/.config/polybar/launch.sh
 [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
