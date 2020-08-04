@@ -2,8 +2,8 @@
 #+PROPERTY: header-args :tangle autostart :tangle-mode (identity #o755)
 
 ** About This Config
-This is my personal hlwm config. I'll probably add my panel config here
-sometime soon.
+This is my personal hlwm config. Most of it is just the default hlwm config with minor tweaks.
+I'll probably add my panel config heresometime soon.
 
 ** AUTOSTART
 *** Start HLWM
