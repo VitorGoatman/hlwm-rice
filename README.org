@@ -37,7 +37,7 @@ hc keybind $Mod-Shift-c close
 
 **** Launch Programs
 A nice thing about hlwm's config being written in shell is that our system's environment
-variables such as ~$BROWSER~, ~$EDITOR~ and ~$TERM~ are usable in the keybinds.
+variables such as =$BROWSER=, =$EDITOR= and =$TERM= are usable in the keybinds.
 
 #+BEGIN_SRC bash
 hc keybind $Mod-Return spawn "${TERM:-st}" # use your $TERMinal with st as fallback
