@@ -161,7 +161,7 @@ hc keybind $Mod-i jumpto urgent
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 hc set frame_border_active_color '#A3BE8C'
-hc set frame_border_normal_color '#101010'
+hc set frame_border_normal_color '#4C566A'
 hc set frame_bg_normal_color '#5E81AC'
 hc set frame_bg_active_color '#8FBCBB'
 hc set frame_border_width 1
@@ -171,7 +171,7 @@ hc set frame_transparent_width 2
 hc set frame_gap 4
 
 hc attr theme.active.color '#A3BE8C'
-hc attr theme.normal.color '#454545'
+hc attr theme.normal.color '#4C566A'
 hc attr theme.urgent.color orange
 hc attr theme.inner_width 0
 hc attr theme.inner_color black
@@ -189,8 +189,6 @@ hc set smart_window_surroundings 1
 hc set smart_frame_surroundings 1
 hc set mouse_recenter_gap 0
 #+END_SRC
-
-#+RESULTS:
 
 *** Rules
 #+BEGIN_SRC bash
