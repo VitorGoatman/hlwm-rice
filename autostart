@@ -13,23 +13,25 @@ hc keyunbind --all
 
 Mod=Mod4   # Use the super key as the main modifier
 Alt=Mod1   # Use the alt key as an secondary modifier
+Term='st-goat'
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 
-hc keybind $Mod-Return spawn "${TERM:-st}" # use your $TERMinal with st as fallback
-hc keybind $Mod-d spawn dmenu_run
+hc keybind $Mod-Return spawn $Term #"${st-goat:-st}" # use your $TERMinal with st as fallback
+hc keybind $Mod-d spawn dmenu_recency
+hc keybind $Mod-z spawn morc_menu
 hc keybind $Mod-F1 spawn i3-scrot
 hc keybind $Mod-Ctrl-F1 spawn i3-scrot -w
 hc keybind $Mod-$Alt-F1 spawn flameshot gui
 hc keybind $Mod-Shift-d spawn clipmenu
 hc keybind $Mod-w spawn $BROWSER
-hc keybind $Mod-$Alt-v spawn $TERM -e 'nvim'
-hc keybind $Mod-$Alt-w spawn $TERM -e 'emacs /home/bode/orgwiki/index.org'
-hc keybind $Mod-$Alt-y spawn $TERM -e 'straw-viewer'
-hc keybind $Mod-$Alt-m spawn $TERM -e 'mocp'
-hc keybind $Mod-$Alt-c spawn $TERM -e 'castero'
+hc keybind $Mod-$Alt-v spawn $Term -e 'nvim'
+hc keybind $Mod-$Alt-w spawn $Term -e 'emacs /home/bode/orgwiki/index.org'
+hc keybind $Mod-$Alt-y spawn $Term -e 'rlwrap pipe-viewer'
+hc keybind $Mod-$Alt-m spawn $Term -e 'mocp'
+hc keybind $Mod-$Alt-c spawn $Term -e 'castero'
 
 hc keybind $Mod-Left  focus left
 hc keybind $Mod-Down  focus down
@@ -113,8 +115,8 @@ hc keybind $Mod-i jumpto urgent
 
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
-hc set frame_border_active_color '#A3BE8C'
-hc set frame_border_normal_color '#4C566A'
+hc set frame_border_active_color '#519f50'
+hc set frame_border_normal_color '#918175'
 hc set frame_bg_normal_color '#5E81AC'
 hc set frame_bg_active_color '#8FBCBB'
 hc set frame_border_width 1
@@ -123,8 +125,8 @@ hc set frame_bg_transparent 1
 hc set frame_transparent_width 2
 hc set frame_gap 4
 
-hc attr theme.active.color '#A3BE8C'
-hc attr theme.normal.color '#4C566A'
+hc attr theme.active.color '#98bc37'
+hc attr theme.normal.color '#918175'
 hc attr theme.urgent.color orange
 hc attr theme.inner_width 0
 hc attr theme.inner_color black
@@ -143,14 +145,14 @@ hc set smart_frame_surroundings 1
 hc set mouse_recenter_gap 0
 
 hc unrule -F
-hc rule class=mpv tag=5 # move all xterms to tag 3
+hc rule class=mpv tag=5 # move all mpvs to tag 3
 hc rule focus=on # normally focus new clients
 #hc rule focus=off # normally do not focus new clients
 # give focus to most common terminals
 #hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
-hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
+hc rule windowtype='_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
-hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
+hc rule windowtype='_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 
 hc set tree_style '╾│ ├└╼─┐'
 
@@ -163,6 +165,7 @@ hc unlock
 # hc detect_monitors
 
 panel=~/.config/polybar/launch.sh
+#panel=panel.sh
 [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
 for monitor in $(hc list_monitors | cut -d: -f1) ; do
     # start it on each monitor
