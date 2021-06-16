@@ -13,14 +13,14 @@ hc keyunbind --all
 
 Mod=Mod4   # Use the super key as the main modifier
 Alt=Mod1   # Use the alt key as an secondary modifier
-Term='st-goat'
+Term='stterm'
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 
 hc keybind $Mod-Return spawn $Term #"${st-goat:-st}" # use your $TERMinal with st as fallback
-hc keybind $Mod-d spawn dmenu_recency
+hc keybind $Mod-d spawn "$HOME/.config/herbstluftwm/dmenu_run_hlwm"
 hc keybind $Mod-z spawn morc_menu
 hc keybind $Mod-F1 spawn i3-scrot
 hc keybind $Mod-Ctrl-F1 spawn i3-scrot -w
@@ -162,10 +162,9 @@ hc unlock
 # do multi monitor setup here, e.g.:
 # hc set_monitors 1280x1024+0+0 1280x1024+1280+0
 # or simply:
-# hc detect_monitors
+hc detect_monitors
 
 panel=~/.config/polybar/launch.sh
-#panel=panel.sh
 [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
 for monitor in $(hc list_monitors | cut -d: -f1) ; do
     # start it on each monitor
