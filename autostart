@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 hc() {
     herbstclient "$@"
@@ -19,6 +19,7 @@ Term='st'
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
+hc keybind $Mod-Shift-e spawn "$HOME/.config/polybar/scripts/powermenu.sh"
 
 hc keybind $Mod-Return spawn "${Term:-xterm}" # use your $TERMinal with st as fallback
 hc keybind $Mod-d spawn "$HOME/.config/herbstluftwm/dmenu_run_hlwm"
@@ -27,7 +28,7 @@ hc keybind $Mod-F1 spawn i3-scrot
 hc keybind $Mod-Ctrl-F1 spawn i3-scrot -w
 hc keybind $Mod-$Alt-F1 spawn flameshot gui
 hc keybind $Mod-Shift-d spawn clipmenu
-hc keybind $Mod-w spawn $BROWSER
+hc keybind $Mod-w spawn "$BROWSER"
 hc keybind $Mod-$Alt-v spawn $Term -e 'nvim'
 hc keybind $Mod-$Alt-w spawn $Term -e 'emacs /home/bode/orgwiki/index.org'
 hc keybind $Mod-$Alt-y spawn $Term -e 'rlwrap pipe-viewer'
@@ -74,13 +75,13 @@ hc keybind $Mod-Control-Up      resize up +$resizestep
 hc keybind $Mod-Control-Right   resize right +$resizestep
 
 tag_names=( {1..8} )
-tag_keys=( {1..8} 0 )
+tag_keys=( {1..8} )
 
 hc rename default "${tag_names[0]}" || true
 for i in "${!tag_names[@]}" ; do
     hc add "${tag_names[$i]}"
     key="${tag_keys[$i]}"
-    if ! [ -z "$key" ] ; then
+    if  [ -n "$key" ] ; then
         hc keybind "$Mod-$key" use_index "$i"
         hc keybind "$Mod-Shift-$key" move_index "$i"
     fi
