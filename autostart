@@ -6,6 +6,7 @@ hc() {
 
 hc emit_hook reload
 
+feh --bg-scale ~/wallpaper.jpg
 #xsetroot -solid '#5A8E3A'
 
 # remove all existing keybindings
@@ -13,15 +14,15 @@ hc keyunbind --all
 
 Mod=Mod4   # Use the super key as the main modifier
 Alt=Mod1   # Use the alt key as an secondary modifier
-Term='stterm'
+Term='st'
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 
-hc keybind $Mod-Return spawn $Term #"${st-goat:-st}" # use your $TERMinal with st as fallback
+hc keybind $Mod-Return spawn "${Term:-xterm}" # use your $TERMinal with st as fallback
 hc keybind $Mod-d spawn "$HOME/.config/herbstluftwm/dmenu_run_hlwm"
-hc keybind $Mod-z spawn morc_menu
+hc keybind $Mod-z spawn "$HOME/.config/polybar/scripts/launcher.sh"
 hc keybind $Mod-F1 spawn i3-scrot
 hc keybind $Mod-Ctrl-F1 spawn i3-scrot -w
 hc keybind $Mod-$Alt-F1 spawn flameshot gui
