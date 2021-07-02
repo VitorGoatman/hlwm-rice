@@ -49,11 +49,11 @@ hc keybind $Mod-Ctrl-F1 spawn i3-scrot -w
 hc keybind $Mod-$Alt-F1 spawn flameshot gui
 hc keybind $Mod-Shift-d spawn clipmenu
 hc keybind $Mod-w spawn "$BROWSER"
-hc keybind $Mod-$Alt-v spawn $Term -e 'nvim'
-hc keybind $Mod-$Alt-w spawn $Term -e 'emacs /home/bode/orgwiki/index.org'
-hc keybind $Mod-$Alt-y spawn $Term -e 'rlwrap pipe-viewer'
-hc keybind $Mod-$Alt-m spawn $Term -e 'mocp'
-hc keybind $Mod-$Alt-c spawn $Term -e 'castero'
+hc keybind $Mod-$Alt-v spawn "$Term" -e 'nvim'
+hc keybind $Mod-$Alt-w spawn "$Term" -e 'emacs /home/bode/orgwiki/index.org'
+hc keybind $Mod-$Alt-y spawn "$Term" -e 'rlwrap pipe-viewer'
+hc keybind $Mod-$Alt-m spawn "$Term" -e 'mocp'
+hc keybind $Mod-$Alt-c spawn "$Term" -e 'castero'
 #+END_SRC
 
 **** Focus

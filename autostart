@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 hc() {
     herbstclient "$@"
@@ -6,7 +6,6 @@ hc() {
 
 hc emit_hook reload
 
-feh --bg-scale ~/wallpaper.jpg
 #xsetroot -solid '#5A8E3A'
 
 # remove all existing keybindings
@@ -14,7 +13,6 @@ hc keyunbind --all
 
 Mod=Mod4   # Use the super key as the main modifier
 Alt=Mod1   # Use the alt key as an secondary modifier
-Term='st'
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
@@ -29,11 +27,11 @@ hc keybind $Mod-Ctrl-F1 spawn i3-scrot -w
 hc keybind $Mod-$Alt-F1 spawn flameshot gui
 hc keybind $Mod-Shift-d spawn clipmenu
 hc keybind $Mod-w spawn "$BROWSER"
-hc keybind $Mod-$Alt-v spawn $Term -e 'nvim'
-hc keybind $Mod-$Alt-w spawn $Term -e 'emacs /home/bode/orgwiki/index.org'
-hc keybind $Mod-$Alt-y spawn $Term -e 'rlwrap pipe-viewer'
-hc keybind $Mod-$Alt-m spawn $Term -e 'mocp'
-hc keybind $Mod-$Alt-c spawn $Term -e 'castero'
+hc keybind $Mod-$Alt-v spawn "$Term" -e 'nvim'
+hc keybind $Mod-$Alt-w spawn "$Term" -e 'emacs /home/bode/orgwiki/index.org'
+hc keybind $Mod-$Alt-y spawn "$Term" -e 'rlwrap pipe-viewer'
+hc keybind $Mod-$Alt-m spawn "$Term" -e 'mocp'
+hc keybind $Mod-$Alt-c spawn "$Term" -e 'castero'
 
 hc keybind $Mod-Left  focus left
 hc keybind $Mod-Down  focus down
@@ -164,7 +162,7 @@ hc unlock
 # do multi monitor setup here, e.g.:
 # hc set_monitors 1280x1024+0+0 1280x1024+1280+0
 # or simply:
-hc detect_monitors
+# hc detect_monitors
 
 panel=~/.config/polybar/launch.sh
 [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
