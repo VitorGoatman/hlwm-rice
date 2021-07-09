@@ -16,7 +16,7 @@ hc() {
 
 hc emit_hook reload
 
-#xsetroot -solid '#5A8E3A'
+feh --bg-center wallpaper.*
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -29,6 +29,7 @@ Set the modifier keys and binds for reloading and exiting HLWM.
 #+BEGIN_SRC bash
 Mod=Mod4   # Use the super key as the main modifier
 Alt=Mod1   # Use the alt key as an secondary modifier
+Term=st
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
